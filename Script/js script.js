@@ -30,10 +30,16 @@ const personalMoviesDB={
     genres: [],
     privat: false
 };
-const a=prompt('Один из последних просмотренных фильмов?',''),
-      b=prompt('На сколько оцените его?',''),
-      c=prompt('Один из последних просмотренных фильмов?',''),
-      d=prompt('На сколько оцените его?','');
-personalMoviesDB.movies[a]=b;
-personalMoviesDB.movies[c]=d;
+for(let i=0;i<2;i++){
+    const a=prompt('Один из последних просмотренных фильмов?',''),
+      b=prompt('На сколько оцените его?','');
+      if(a !=null && b!=null&& a!='' &&b!=''&& a.length<50){
+        personalMoviesDB.movies[a]=b;
+      } else{console.log('error');
+        i--;}
+}
+if(personalMoviesDB.count<10){console.log('Not enough');}
+else if(personalMoviesDB.count>=10&&personalMoviesDB.count<30){console.log('You are classical spectacular');}
+else if(personalMoviesDB.count>=30){console.log('You are great');}
+else{console.log('An error occured');}
 console.log(personalMoviesDB);
